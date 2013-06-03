@@ -1,28 +1,15 @@
-== README
+== WeThing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Corporate knowledge base management system.
 
-Things you may want to cover:
+== Dependencies
 
-* Ruby version
+- Ruby 2.0.0-p195
+- RVM
 
-* System dependencies
+== Setup
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Create a .rvmrc file with "rvm use 2.0.0-p195@wething"
+- bundle install
+- rake db:migrate
+- rake db:migrate RAILS_ENV=test

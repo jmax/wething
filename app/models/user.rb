@@ -3,5 +3,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name, :last_name, presence: true
-#  attr_accessible :first_name, :last_name
 end

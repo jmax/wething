@@ -10,11 +10,13 @@ h1 {
         display: block;
         padding: 8px;
         width: auto;
+        color:white;
+        font-size: medium;
 }
 
 #menu a{
         border: 1px solid black;
-        border-radius:5px;
+        border-radius:8px;
         background-color: firebrick;
         padding: 3px;
         text-decoration: none;

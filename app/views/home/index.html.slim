@@ -15,3 +15,10 @@ div id="main"
   - if user_signed_in?
     div(class="call-to-action")
       = link_to "Thing something!", "/thing/this"
+
+    #things
+      - for thing in things
+        div.thing
+          h3= thing.url.truncate(57)
+          p.description= thing.description
+          p.author= thing.user.first_name

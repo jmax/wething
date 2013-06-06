@@ -51,7 +51,6 @@ let(:user) {
       it "requires company name to be present" do
         subject.company_attributes = { name: nil }
         expect(subject).to_not be_valid
-        expect(subject).to have_at_least(1).errors_on(:company)
         expect(subject).to have_at_least(1).errors_on("company.name")
       end
     end

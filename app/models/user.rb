@@ -8,5 +8,4 @@ class User < ActiveRecord::Base
   delegate :name, to: :company, prefix: true, allow_nil: true
 
   validates :first_name, :last_name,:company, presence: true
-  validates_associated :company
 end

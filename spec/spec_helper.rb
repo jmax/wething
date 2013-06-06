@@ -37,11 +37,20 @@ RSpec.configure do |config|
   end
 end
 
-def login_with( user = FactoryGirl.create(:user) )
+def login_with( user = FactoryGirl.build(:user) )
   visit new_user_session_url
 
   fill_in "user[email]",    with: user.email
   fill_in "user[password]", with: "123123123"
 
   click_on "Sign in"
+end
+
+def post_a_new_thing( thing = FactoryGirl.build(:thing) )
+  visit thing_this_path
+
+  fill_in "thing[url]",         with: thing.url
+  fill_in "thing[description]", with: thing.description
+
+  click_on "Thing this!"
 end

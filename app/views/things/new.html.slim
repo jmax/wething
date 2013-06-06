@@ -1,0 +1,24 @@
+h2 Thing this!
+
+= form_for thing do |f|
+
+  - unless thing.valid?
+    div.errors
+      ul
+        - for error in thing.errors.full_messages
+          li= error
+
+  div
+    = f.label :url
+    br/
+    = f.text_field :url, placeholder: "http://some-url.com"
+
+  div
+    = f.label :description
+    br/
+    = f.text_area :description, placeholder: "Describe the URL you want to share"
+
+  div
+    = f.submit "Thing this!"
+    span or 
+    = link_to "Cancel", root_path

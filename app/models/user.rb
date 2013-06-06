@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company
+  has_many   :things
 
   accepts_nested_attributes_for :company
   delegate :name, to: :company, prefix: true, allow_nil: true

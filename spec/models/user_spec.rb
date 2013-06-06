@@ -21,6 +21,7 @@ let(:user) {
 
   describe "Associations" do
     it { should belong_to(:company) }
+    it { should have_many(:things) }
   end
 
   describe "Delegators" do

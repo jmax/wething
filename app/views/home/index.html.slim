@@ -2,9 +2,9 @@ h1 Wething slim
 
 div id="menu"
   -if user_signed_in?
-    = current_user.first_name
-    = " Company: #{current_company.name}"
-    = link_to 'Sign out',   destroy_user_session_path, :method => :delete
+    span= current_user.first_name
+    span= current_company.name
+    span= link_to 'Sign out', destroy_user_session_path, method: :delete
 
   -else
     = link_to 'Sign in',   new_user_session_path

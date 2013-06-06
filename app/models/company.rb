@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  devise :rememberable, :registerable
 
   has_many :users
 

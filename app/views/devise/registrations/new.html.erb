@@ -7,7 +7,7 @@
   <div>
     <%= f.fields_for :company_attributes do |c| %>
       <%= c.label :name, "Company Name" %><br />
-      <%= c.text_field :name %>
+      <%= c.text_field :name, value: resource.company_name %>
     <% end -%>
   </div>
 

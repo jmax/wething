@@ -1,24 +1,25 @@
 h2 Thing this!
 
-= form_for thing do |f|
+div class="span12"
+  = form_for thing do |f|
+    fieldset
+      - unless thing.errors.empty?
+        div.errors
+          ul
+            - for error in thing.errors.full_messages
+              li= error
 
-  - unless thing.valid?
-    div.errors
-      ul
-        - for error in thing.errors.full_messages
-          li= error
 
-  div
-    = f.label :url
-    br/
-    = f.text_field :url, placeholder: "http://some-url.com"
+      = f.label :url
 
-  div
-    = f.label :description
-    br/
-    = f.text_area :description, placeholder: "Describe the URL you want to share"
+      = f.text_field :url, placeholder: "http://some-url.com"
 
-  div
-    = f.submit "Thing this!"
-    span or
-    = link_to "Cancel", root_path
+
+      = f.label :description
+
+      = f.text_area :description, placeholder: "Describe the URL you want to share"
+
+      div
+        = f.submit "Thing this!"
+        span or
+        = link_to "Cancel", root_path

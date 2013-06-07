@@ -5,11 +5,11 @@ head
   title Wething
   = stylesheet_link_tag \
     "application",
-     media: "all", 
+     media: "all",
      "data-turbolinks-track" => true
 
   = javascript_include_tag \
-   "application", 
+   "application",
    "data-turbolinks-track" => true
 
   = csrf_meta_tags
@@ -17,9 +17,30 @@ head
 
 body
 
-p class="notice"
-  = notice
-p class="alert"
-  = alert
+header
+  div(class="navbar inverse")
+    div.navbar-inner
+      div(class="container")
+        div.span12
+          = link_to "Wething", root_path, class: "brand"
+
+          - if user_signed_in?
+            div class="divider pull-right"
+              span class="badge"= current_company.name
+              span class="badge badge-inverse"= current_user.first_name
+
+              = link_to 'Sign out', destroy_user_session_path, method: :delete, :class=>"btn btn-link"
+
+          - else
+            div class="divider pull-right"
+              = link_to 'Sign in', new_user_session_path, :class=>"btn btn-link"
+              = link_to 'Sign up', new_user_registration_path, :class=>"btn btn-link"
+
+- if notice
+  p class="notice"
+    = notice
+-if alert
+  p class="alert"
+    = alert
 
 == yield

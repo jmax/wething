@@ -1,24 +1,13 @@
-h1 Wething slim
-
-div id="menu"
-  - if user_signed_in?
-    span= current_user.first_name
-    span= current_company.name
-    span= link_to 'Sign out', destroy_user_session_path, method: :delete
-
-  - else
-    = link_to 'Sign in',   new_user_session_path
-    = link_to 'Sign up',   new_user_registration_path
-
-
 div id="main"
   - if user_signed_in?
-    div(class="call-to-action")
-      = link_to "Thing something!", "/thing/this"
+    div(class="call-to-action span12" )
+      = link_to "Thing something!", "/thing/this", :class=>"btn btn-link btn-large"
 
-    #things
+
+    ul id="things" class="thumbnails"
       - for thing in things
-        div.thing
-          h3= thing.url.truncate(57)
-          p.description= thing.description
-          p.author= thing.user.first_name
+        li class="span12"
+          div.thing class="thumbnail"
+            h3= thing.url.truncate(57)
+            p.description= thing.description
+            p class="author badge badge-inverse"= thing.user.first_name

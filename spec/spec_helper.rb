@@ -43,7 +43,7 @@ def login_with( user = FactoryGirl.build(:user) )
   fill_in "user[email]",    with: user.email
   fill_in "user[password]", with: "123123123"
 
-  click_on "Sign in"
+  find('#new_user').click_on "Sign in"
 end
 
 def post_a_new_thing( thing = FactoryGirl.build(:thing) )

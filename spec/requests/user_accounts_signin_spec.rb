@@ -14,7 +14,7 @@ feature "User Accounts Signin" do
     fill_in "user[email]",    with: user.email
     fill_in "user[password]", with: "123123123"
 
-    click_on "Sign in"
+    find('#new_user').click_on "Sign in"
 
     expect(page).to     have_selector("p",    text: "Signed in successfully.")
     expect(page).to     have_selector("span", text: user.first_name)
@@ -26,7 +26,7 @@ feature "User Accounts Signin" do
   scenario "logging in a unexisting user account" do
     expect(current_path).to eql(new_user_session_path)
 
-    click_on "Sign in"
+    find('#new_user').click_on "Sign in"
 
     expect(page).to     have_selector("p", text: "Invalid email or password.")
 

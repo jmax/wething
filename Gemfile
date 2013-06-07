@@ -4,15 +4,18 @@ gem 'rails',         '4.0.0.rc1'
 
 gem 'sqlite3'
 
-gem 'sass-rails',    '~> 4.0.0.rc1'
-gem 'uglifier',      '>= 1.3.0'
-gem 'coffee-rails',  '~> 4.0.0'
+gem 'sass-rails',                '~> 4.0.0.rc1'
+gem 'uglifier',                  '>= 1.3.0'
+gem 'coffee-rails',              '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder',      '~> 1.0.1'
-gem 'devise',        '3.0.0.rc'
-gem 'slim',          '2.0.0'
-gem 'slim-rails',    '2.0.1'
+gem 'jbuilder',                  '~> 1.0.1'
+gem 'devise',                    '3.0.0.rc'
+gem 'slim',                      '2.0.0'
+gem 'slim-rails',                '2.0.1'
+gem 'therubyracer',              '0.11.4'
+gem 'less-rails',                '2.3.3'
+gem 'twitter-bootstrap-rails',   '2.2.7'
 
 group :doc do
   gem 'sdoc', require: false

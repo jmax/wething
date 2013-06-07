@@ -20,7 +20,7 @@ feature "User Accounts Signup" do
     fill_in "user[password]",                 with: "123123123"
     fill_in "user[password_confirmation]",    with: "123123123"
 
-    click_on "Sign up"
+    find('#new_user').click_on "Sign up"
 
     expect(User.where(email: "banner@thehulk.com")).to_not be_empty
     user = User.last
@@ -48,7 +48,7 @@ feature "User Accounts Signup" do
     fill_in "user[password]",                 with: "123123123"
     fill_in "user[password_confirmation]",    with: "123123123"
 
-    click_on "Sign up"
+    find('#new_user').click_on "Sign up"
 
     expect(User.where(email: "banner@thehulk.com")).to be_empty
     expect(Company.count).to eql(1)
@@ -62,7 +62,7 @@ feature "User Accounts Signup" do
   scenario "submitting an empty form" do
     expect(current_path).to eql(new_user_registration_path)
 
-    click_on "Sign up"
+    find('#new_user').click_on "Sign up"
 
     expect(User.count).to eql(0)
     expect(Company.count).to eql(0)

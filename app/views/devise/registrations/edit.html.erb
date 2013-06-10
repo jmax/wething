@@ -1,9 +1,9 @@
-<div class="span12">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),
-   :html => { :method => :put, :class => "form-horizontal"}) do |f| %>
-    <%= devise_error_messages! %>
+<div class="row">
 
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),
+   :html => { :method => :put, :class => "form-horizontal span8 offset1"}) do |f| %>
+    <%= devise_error_messages! %>
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
     <div class="control-group">
       <%= f.fields_for :company_attributes do |c| %>
         <%= c.label "Company name", :class =>"control-label" %>
@@ -60,21 +60,19 @@
     <div class="control-group">
       <div class="controls"><%= f.submit "Update", :class=>"btn btn-primary" %></div>
       </div>
+    <div class="controls"><%= link_to "Back", :back %></div>
   <% end %>
 
-    <div class ="form-horizontal">
-      <div class="control-group">
+    <div class ="span3 pull-right">
 
-        <h3>Cancel my account</h3>
+        <h4>Cancel my account</h4>
 
         <label class ="control-label">Unhappy?</label>
         <div class="controls">
           <%= button_to "Cancel my account", registration_path(resource_name),
-          :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>"btn btn-danger" %>
+          :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>"btn btn-link" %>
         </div>
 
-        <div class="controls"><%= link_to "Back", :back %></div>
+    </div>
 
-      </div>
-  </div>
 </div>

@@ -22,9 +22,10 @@ header
     div.navbar-inner
       div(class="container")
         div.span12
-          = link_to "Wething", root_path, class: "divider-vertical brand"
+          = link_to "Wething", root_path, class: "brand"
 
           - if user_signed_in?
+            span class="brand" |
             span class="brand"= current_company.name
             div class="pull-right"
               =link_to current_user.first_name, edit_user_registration_path, :class=>"btn btn-link"

@@ -11,14 +11,14 @@ div id="thing_form" class="offset1"
 
       = f.label :url
 
-      = f.text_field :url, placeholder: "http://some-url.com"
+      = f.text_field :url, placeholder: "http://some-url.com", :class=>"input-large span10"
 
 
       = f.label :description
 
-      = f.text_area :description, placeholder: "Describe the URL you want to share"
+      = f.text_area :description, placeholder: "Describe the URL you want to share", :class=>"input-large span10",:rows=>"5"
 
       div id="thing_buttons"
         = f.submit "Thing this!", :class=>"btn btn-primary"
-        span  or 
-        = link_to "Cancel", root_path, :class=>"btn"
+        span  or
+        = link_to "Cancel", root_path, :class=>"btn btn-link"

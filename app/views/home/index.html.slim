@@ -1,13 +1,14 @@
 div id="main"
   - if user_signed_in?
-    div(class="call-to-action span12" )
-      = link_to "Thing something!", "/thing/this", :class=>"btn btn-link btn-large"
+    div(id="thing_this" class="call-to-action span12" )
+      = link_to "Thing something!", "/thing/this", :class=>"btn btn-large btn-success"
 
 
-    ul id="things" class="thumbnails"
-      - for thing in things
-        li class="span12"
-          div.thing class="thumbnail"
-            h3= thing.url.truncate(57)
-            p.description= thing.description
-            p class="author badge badge-inverse"= thing.user.first_name
+    div id="things"
+      ul class="thumbnails"
+        - for thing in things
+          li class="span12"
+            div.thing class="thumbnail"
+              h3=link_to thing.url.truncate(57), thing.url, :target=>"_blank"
+              p.description= thing.description
+              p class="author badge badge-inverse"= thing.user.first_name

@@ -17,7 +17,7 @@ feature "User Accounts Signin" do
     find('#new_user').click_on "Sign in"
 
     expect(page).to     have_selector("p",    text: "Signed in successfully.")
-    expect(page).to     have_selector("span", text: user.first_name)
+    expect(page).to     have_selector("a", text: user.first_name)
     expect(page).to     have_selector("span", text: user.company_name)
 
     expect(current_path).to eql(root_path)

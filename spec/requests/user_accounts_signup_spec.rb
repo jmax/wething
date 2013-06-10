@@ -28,7 +28,7 @@ feature "User Accounts Signup" do
 
     welcome_message = "Welcome! You have signed up successfully."
     expect(page).to     have_selector("p",    text: welcome_message)
-    expect(page).to     have_selector("span", text: user.first_name)
+    expect(page).to     have_selector("a", text: user.first_name)
     expect(page).to     have_selector("span", text: user.company_name)
 
     expect(current_path).to eql(root_path)

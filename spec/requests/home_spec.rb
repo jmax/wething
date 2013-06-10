@@ -19,7 +19,7 @@ feature "Homepage" do
     expect(page).to     have_link("Sign out")
     expect(page).to_not have_link("Sign in")
     expect(page).to_not have_link("Sign up")
-    expect(page).to     have_selector("span", text: user.first_name)
+    expect(page).to     have_selector("a", text: user.first_name)
     expect(page).to     have_selector("span", text: user.company_name)
   end
 

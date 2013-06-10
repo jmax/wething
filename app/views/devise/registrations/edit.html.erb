@@ -58,9 +58,11 @@
     </div>
 
     <div class="control-group">
-      <div class="controls"><%= f.submit "Update", :class=>"btn btn-primary" %></div>
+      <div class="controls"><%= f.submit "Update", :class=>"btn btn-primary" %>
+        <span> or</span>
+        <%= link_to "Cancel", root_path, :class=>"btn btn-link"%>
       </div>
-    <div class="controls"><%= link_to "Back", :back %></div>
+    </div>
   <% end %>
 
     <div class ="span3 pull-right">

@@ -22,12 +22,12 @@ header
     div.navbar-inner
       div(class="container")
         div.span12
-          = link_to "Wething", root_path, class: "brand"
+          = link_to "Wething", root_path, class: "divider-vertical brand"
 
           - if user_signed_in?
-            div class="divider pull-right"
-              span class="badge"= current_company.name
-              span class="badge badge-inverse"= current_user.first_name
+            span class="brand"= current_company.name
+            div class="pull-right"
+              =link_to current_user.first_name, edit_user_registration_path, :class=>"btn btn-link"
 
               = link_to 'Sign out', destroy_user_session_path, method: :delete, :class=>"btn btn-link"
 

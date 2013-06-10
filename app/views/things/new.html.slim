@@ -1,6 +1,5 @@
-h2 Thing this!
-
-div class="span12"
+div id="thing_form" class="offset1"
+  h2 Thing this!
   = form_for thing do |f|
     fieldset
       - unless thing.errors.empty?
@@ -19,7 +18,7 @@ div class="span12"
 
       = f.text_area :description, placeholder: "Describe the URL you want to share"
 
-      div
-        = f.submit "Thing this!"
-        span or
-        = link_to "Cancel", root_path
+      div id="thing_buttons"
+        = f.submit "Thing this!", :class=>"btn btn-primary"
+        span  or 
+        = link_to "Cancel", root_path, :class=>"btn"

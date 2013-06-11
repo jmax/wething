@@ -14,7 +14,7 @@ feature "Viewing a Thing" do
 
     save_and_open_page
 
-    click_link(thing.url)
+    click_on(thing.url)
 
     expect(thing.user_views.count).to eql(1)
   end

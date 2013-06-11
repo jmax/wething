@@ -6,7 +6,7 @@ FactoryGirl.define do
     description "Something to say"
 
     before(:create) do |thing|
-      thing.company = user.company
+      thing.company = thing.user.company
     end
   end
 end

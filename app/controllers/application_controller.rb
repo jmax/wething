@@ -23,5 +23,4 @@ protected
     @company ||= current_user.company if current_user
   end
   helper_method :current_company
-
 end

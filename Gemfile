@@ -31,4 +31,5 @@ group :test do
   gem "capybara",         '2.1.0'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem "simplecov",        require: false
+  gem "launchy"
 end

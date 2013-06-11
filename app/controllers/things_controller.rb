@@ -4,11 +4,17 @@ class ThingsController < ApplicationController
   def new; end
 
   def create
-    if current_user.company.things << thing
+    if current_company.things << thing
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @thing = current_company.things.find(params[:id])
+    current_user.view(@thing)
+    redirect_to @thing.url
   end
 
 protected
@@ -24,4 +30,5 @@ protected
       {}
     end
   end
+
 end

@@ -17,6 +17,12 @@ class ThingsController < ApplicationController
     redirect_to @thing.url
   end
 
+  def add_to_favorited
+    @thing = current_company.things.find(params[:id])
+    current_user.favorite(@thing)
+
+  end
+
 protected
   def thing
     @thing ||= current_user.things.build(thing_params)

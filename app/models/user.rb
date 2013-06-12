@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many   :things
   has_many   :user_views
   has_many   :viewed_things, through: :user_views, source: :thing
+  has_many   :user_favorites
+  has_many   :favorited_things, through: :user_favorites, source: :thing
 
   accepts_nested_attributes_for :company
   delegate :name, to: :company, prefix: true, allow_nil: true
@@ -17,4 +19,11 @@ class User < ActiveRecord::Base
       viewed_things << thing
     end
   end
+
+  def favorite(thing)
+    unless favorited_things.include?(thing)
+      favorited_things << thing
+    end
+  end
+
 end

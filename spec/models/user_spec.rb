@@ -106,4 +106,37 @@ let(:user) {
       end
     end
   end
+
+  describe "#favorite" do
+    before(:each) do
+      @thing  = create(:thing)
+      @favoriter = create(:user)
+    end
+
+
+    context "adding a thing to user's favorite"do
+
+      it "include the thing to favorited things" do
+        @favoriter.favorite(@thing)
+        expect(@favoriter.favorited_things).to include(@thing)
+      end
+    end
+
+
+    context "trying to add a thing already included in user's favorites"do
+      before(:each) do
+        @favoriter.favorite(@thing)
+      end
+
+      it "not include the thing to favorited things" do
+        expect(@favoriter.favorited_things.count).to eql(1)
+        expect{
+          @favoriter.favorite(@thing)
+        }.to_not change{ @favoriter.favorited_things.count }.by(1)
+      end
+
+  end
+
+  end
+
 end

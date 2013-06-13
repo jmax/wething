@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130606191204) do
+ActiveRecord::Schema.define(version: 20130612132818) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -26,11 +26,32 @@ ActiveRecord::Schema.define(version: 20130606191204) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_views_count", default: 0
   end
 
   add_index "things", ["company_id", "url"], name: "index_things_on_company_id_and_url", unique: true
   add_index "things", ["company_id"], name: "index_things_on_company_id"
   add_index "things", ["user_id"], name: "index_things_on_user_id"
+
+  create_table "user_favorites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "thing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_favorites", ["thing_id"], name: "index_user_favorites_on_thing_id"
+  add_index "user_favorites", ["user_id"], name: "index_user_favorites_on_user_id"
+
+  create_table "user_views", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "thing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_views", ["thing_id"], name: "index_user_views_on_thing_id"
+  add_index "user_views", ["user_id"], name: "index_user_views_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

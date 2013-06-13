@@ -1,0 +1,20 @@
+div id="my_favorites"
+  - if user_signed_in?
+    div(id="thing_this" class="call-to-action span12" )
+      = link_to "Thing something!", "/thing/this", :class=>"btn btn-large btn-success"
+    div(id="my_favorited")
+      =link_to "All things", root_path
+    h3 class="span12" My Favorites
+
+    div id="things"
+      ul class="thumbnails"
+        - for thing in current_user.favorited_things
+            li class="span12"
+              div.thing class="thumbnail"
+                h3= link_to thing.url.truncate(57), thing, :target=>"_blank"
+                p.description= thing.description
+                p class="author badge badge-inverse"= thing.user.first_name
+                p
+                  span views: 
+                  span = thing.user_views.count
+

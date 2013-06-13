@@ -18,5 +18,7 @@ describe Thing do
   describe "Associations" do
     it { should belong_to(:user) }
     it { should belong_to(:company) }
+    it { should have_many(:user_views) }
+    it { should have_many(:viewers).through(:user_views)}
   end
 end

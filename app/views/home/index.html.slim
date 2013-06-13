@@ -5,16 +5,5 @@ div id="main"
     div(id="my_favorited")
       =link_to "My favorites", my_favorites_path
 
-
     div id="things"
-      ul class="thumbnails"
-        - for thing in things
-          li class="span12"
-            div.thing class="thumbnail"
-              h3= link_to thing.url.truncate(57), thing, :target=>"_blank"
-              p.description= thing.description
-              p class="author badge badge-inverse"= thing.user.first_name
-              =link_to "Add to my favorites",thing_user_favorites_path(thing), method: :post
-              p
-                span views: 
-                span = thing.user_views.count
+      ul class="thumbnails" = render things

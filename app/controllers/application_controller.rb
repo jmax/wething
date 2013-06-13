@@ -3,8 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-
 protected
+  def current_thing
+    @thing ||= current_company.things.find(params[:thing_id] || params[:id])
+  end
+  helper_method :current_thing
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_in) do |u|

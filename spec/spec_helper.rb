@@ -13,6 +13,9 @@ Dir[Rails.root.join("spec/factories/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+Capybara.run_server = true
+Capybara.default_wait_time = 15
+
 RSpec.configure do |config|
   config.include Capybara::DSL,           type: :request
   config.include Devise::TestHelpers,     type: :controller

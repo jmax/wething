@@ -15,6 +15,6 @@ feature "Viewing a Thing" do
     click_on("Add to my favorites")
 
     expect(favoriter.user_favorites).to include(thing)
-
+    expect(current_path).to eql(root_path)
   end
 end

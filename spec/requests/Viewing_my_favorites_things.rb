@@ -16,6 +16,9 @@ feature "Viewing my favorites" do
     click_on("My favorites")
 
     expect(current_path).to eql('/my/favorites')
-
+    expect(page).to have_selector("#things")
+    expect(page).to have_selector("#things div h3",            text: thing.url)
+    expect(page).to have_selector("#things div p.description", text: thing.description)
+    expect(page).to have_selector("#things div p.author",      text: thing.user.first_name)
   end
 end

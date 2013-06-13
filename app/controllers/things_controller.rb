@@ -12,15 +12,8 @@ class ThingsController < ApplicationController
   end
 
   def show
-    @thing = current_company.things.find(params[:id])
-    current_user.view(@thing)
+    current_user.view(current_thing)
     redirect_to @thing.url
-  end
-
-  def add_to_favorited
-    @thing = current_company.things.find(params[:id])
-    current_user.favorite(@thing)
-
   end
 
 protected
@@ -36,5 +29,4 @@ protected
       {}
     end
   end
-
 end

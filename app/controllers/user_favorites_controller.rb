@@ -1,15 +1,16 @@
 class UserFavoritesController < ApplicationController
+  before_filter :authenticate_user!
+
+  def show; end
 
   def create
-    @thing = current_company.things.find(params[:thing_id])
-    current_user.favorite(@thing)
+    current_user.favorite(current_thing)
     redirect_to root_path
   end
 
-  def show
-    respond_to do |format|
-      format.html # show.html.slim
-    end
+protected
+  def favorited_things
+    @favorited_things ||= current_user.favorited_things
   end
-
+  helper_method :favorited_things
 end

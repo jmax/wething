@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe UserFavoriteController do
+describe UserFavoritesController do
 
 end

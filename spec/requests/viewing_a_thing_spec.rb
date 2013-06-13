@@ -12,7 +12,6 @@ feature "Viewing a Thing" do
   scenario "with an unviewed thing" do
     login_with viewer
 
-    save_and_open_page
 
     click_on(thing.url)
 

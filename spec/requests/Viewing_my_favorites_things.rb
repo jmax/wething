@@ -1,20 +1,21 @@
 require "spec_helper"
 
-feature "Viewing a Thing" do
+feature "Viewing my favorites" do
   given!(:thing)  { create(:thing) }
   given!(:favoriter) { create(:user) }
 
   background do
     favoriter.company = thing.user.company
     favoriter.save
+    favoriter.favorite(thing)
   end
 
-  scenario "add to my favorites" do
+  scenario "click my favorites" do
     login_with favoriter
 
-    click_on("Add to my favorites")
+    click_on("My favorites")
 
-    expect(favoriter.user_favorites).to include(thing)
+    expect(current_path).to eql('/my/favorites')
 
   end
 end

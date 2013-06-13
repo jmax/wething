@@ -6,5 +6,10 @@ class UserFavoritesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    respond_to do |format|
+      format.html # show.html.slim
+    end
+  end
 
 end

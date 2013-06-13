@@ -12,5 +12,6 @@ Wething::Application.routes.draw do
 
   get "my/favorites", to: 'user_favorites#show', as: 'my_favorites'
 
+
   root to: "home#index"
 end

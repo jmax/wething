@@ -14,6 +14,7 @@ div id="my_favorites"
                 h3= link_to thing.url.truncate(57), thing, :target=>"_blank"
                 p.description= thing.description
                 p class="author badge badge-inverse"= thing.user.first_name
-                p views
-                = thing.user_views.count
+                p
+                  span views: 
+                  span = thing.user_views.count
 

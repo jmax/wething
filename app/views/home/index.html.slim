@@ -15,5 +15,6 @@ div id="main"
               p.description= thing.description
               p class="author badge badge-inverse"= thing.user.first_name
               =link_to "Add to my favorites",thing_user_favorites_path(thing), method: :post
-              p views
-              = thing.user_views.count
+              p
+                span views: 
+                span = thing.user_views.count

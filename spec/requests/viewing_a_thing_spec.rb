@@ -28,4 +28,10 @@ feature "Viewing a Thing" do
 
     expect(thing.user_views.count).to eql(1)
   end
+
+  scenario "viewer without logging in"do
+
+    visit thing.url
+    expect(thing.user_views.count).to eql(0)
+  end
 end

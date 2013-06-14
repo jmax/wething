@@ -4,12 +4,13 @@ class UserFavoritesController < ApplicationController
   def show; end
 
   def new
-    if current_user.favorited_things.include?(current_thing)
-      redirect_to root_path, :notice => "The thing is already a favorite."
-    else
+    notice = "The thing is already a favorite."
+    unless current_user.favorited_things.include?(current_thing)
+      notice = "The thing was added to favorites."
       current_user.favorite(current_thing)
-      redirect_to root_path, :notice => "The thing was added to favorites."
     end
+
+    redirect_to root_path, notice: notice
   end
 
 protected

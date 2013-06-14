@@ -3,6 +3,6 @@ li class="span12"
     h3= link_to thing.url.truncate(57), visit_thing_path(thing), :target=>"_blank"
     p.description= thing.description
     p class="author badge badge-inverse"= thing.user_first_name
-    p= link_to "Add to my favorites", thing_user_favorites_path(thing), method: :post
+    p= link_to "Add to my favorites", new_thing_user_favorite_path(thing)
     p
       span = pluralize(thing.user_views.count, 'view')
